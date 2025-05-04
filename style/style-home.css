@@ -1,0 +1,176 @@
+body {
+    font-family: sans-serif;
+    background-color: #E3E7EB;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    box-sizing: border-box;
+    display: flex;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: #F4F3F3;
+    justify-items: center;
+    width: 100%;
+
+    img {
+        width: 40px;
+        object-fit: contain;
+    }
+
+    >a {
+        margin-left: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 20px;
+        padding-left: 20px;
+        font-size: medium;
+        text-decoration: none;
+        background-color: #111727;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+    }
+}
+
+.menu {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 40px;
+    height: min-content;
+    gap: 40px;
+
+    a {
+        color: black;
+        text-decoration: none;
+        font-size: medium;
+    }
+
+    .menu-selected {
+        font-weight: bold;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-1 {
+    margin-top: 75px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    border-radius: 5px;
+    width: 780px;
+    height: 425px;
+    background: #FFFFFF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.overview {
+    width: 400px;
+
+    h3 {
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin: 0;
+        font-size: small;
+        line-height: 18px;
+    }
+}
+
+.btn-contact {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 25px;
+    padding-left: 25px;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #111727;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 100px;
+}
+
+.download-cv {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 15px;
+
+    a {
+        height: fit-content;
+        font-size: medium;
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.icon-download {
+    margin-left: 10px;
+    margin-top: auto;
+    width: 22px;
+    height: 22px;
+    bottom: 0;
+}
+
+.social-media {
+    display: flex;
+    gap: 20px;
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        overflow: hidden;
+    }
+}
+
+.card-2 {
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 250px;
+    height: 350px;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        margin-top: -45px;
+        margin-bottom: 8px;
+    }
+
+    h3 {
+        width: fit-content;
+        margin: auto;
+        margin-top: 0;
+    }
+
+    p {
+        width: fit-content;
+        margin: auto;
+        font-size: x-small;
+    }
+}
