@@ -1,0 +1,12 @@
+body {
+    background-color: #DCE0E4;
+}
+
+nav {
+    background-color: #F4F3F3;
+}
+
+nav img {
+    width: 40px;
+    object-fit: contain;
+}
