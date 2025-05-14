@@ -1,6 +1,9 @@
 let button_submit = document.getElementById('button-submit');
 
 function showData(e){
+    if(!document.querySelector('form').checkValidity()){
+        return
+    }
     e.preventDefault();
 
     let name = document.getElementById('name').value;
