@@ -36,22 +36,19 @@ function resetInput() {
     document.getElementById('image').value = '';
 }
 
-function showProjects(){
-    document.getElementById('projects').innerHTML = '';
-
-    for(let i = 0; i < projects.length; i++){
-        document.getElementById('projects').innerHTML += `
+function dataToHTML(data){
+    return `
     <div class="col-4 py-3 px-3">
         <div class="card border-0 p-2 w-100 shadow">
             <div class="ratio ratio-4x3">
-                <img src="${projects[i].image}" alt="Gambar Project" class="card-img-top w-100 h-100 rounded object-fit-cover w-100">
+                <img src="${data.image}" alt="Gambar Project" class="card-img-top w-100 h-100 rounded object-fit-cover w-100">
             </div>
             <div class="pt-3">
-                <p class="mb-0 lh-1 fw-semibold text-truncate">${projects[i].name}</p>
-                <p class="project-text text-secondary">durasi : ${dateDifference(projects[i].start_date, projects[i].end_date)}</p>
-                <p class="project-text project-description overflow-auto">${projects[i].description}</p>
+                <p class="mb-0 lh-1 fw-semibold text-truncate">${data.name}</p>
+                <p class="project-text text-secondary">durasi : ${dateDifference(data.start_date, data.end_date)}</p>
+                <p class="project-text project-description overflow-auto">${data.description}</p>
                 <div class="d-flex gap-3 mb-4">
-                    ${projects[i].techs.node_js ? `
+                    ${data.techs.node_js ? `
                     <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 32 32">
                         <title>file_type_node</title>
                         <path
@@ -62,7 +59,7 @@ function showProjects(){
                             style="fill:#83cd29" />
                     </svg>` : ''
         }
-                    ${projects[i].techs.react_js ? `
+                    ${data.techs.react_js ? `
                     <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 32 32">
                         <title>file_type_reactjs</title>
                         <circle cx="16" cy="15.974" r="2.5" style="fill:#00d8ff" />
@@ -77,7 +74,7 @@ function showProjects(){
                             style="fill:#00d8ff" />
                     </svg>` : ``
         }
-                    ${projects[i].techs.next_js ? `
+                    ${data.techs.next_js ? `
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="28px" height="28px"
                         viewBox="0 0 32 32">
                         <title>file_type_light_next</title>
@@ -86,7 +83,7 @@ function showProjects(){
                     </svg>
                         ` : ``
         }
-                    ${projects[i].techs.typescript ? `
+                    ${data.techs.typescript ? `
                     <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 32 32">
                         <title>file_type_typescript_official</title>
                         <rect x="2" y="2" width="28" height="28" rx="1.312" style="fill:#3178c6" />
@@ -104,8 +101,13 @@ function showProjects(){
             </div>
         </div>
     </div>
-    `;
-    }
+    `
+}
+
+function showProjects(){
+    const projectsHTML = projects.map(data => dataToHTML(data));
+
+    document.getElementById('projects').innerHTML = projectsHTML.join('');
 }
 
 document.getElementById('button-submit').addEventListener('click', (e) => {
