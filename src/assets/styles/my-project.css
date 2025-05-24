@@ -1,0 +1,36 @@
+body{
+    background-color: #E3E7EB;
+}
+
+.tech-text{
+    color: #514A4A;
+}
+
+.projects-wrapper{
+    box-sizing: border-box;
+    background-color: #F8F8F8;
+}
+
+.card{
+    .project-text{
+        font-size: 12px;
+    }
+
+    .project-text.project-description{
+        min-height: 54px;
+        max-height: 54px;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+    }
+
+    button{
+        background-color: #111727;
+    }
+
+    button:hover{
+        background-color: #0c0f1a;
+    }
+}

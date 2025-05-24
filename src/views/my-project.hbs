@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/my-project.css">
+</head>
+
+<body>
+    {{> navbar }}
+
+    <div class="container">
+        <h3 class="mt-5 text-center fw-bold">ADD MY PROJECT</h3>
+        <form method="post" action="/create/project" enctype="multipart/form-data" class="mt-5 mb-5 w-50 mx-auto">
+            <div class="mb-4">
+                <label for="name" class="fs-5 fw-semibold form-label mb-0">Name</label>
+                <input type="text" name="name" id="name" required
+                    class="form-control form-control-lg shadow border border-secondary-subtle">
+            </div>
+            <div class="mb-4 row">
+                <div class="col-6">
+                    <label for="start_date" class="fs-5 fw-semibold form-label mb-0">Start Date</label>
+                    <input type="date" name="start_date" id="start_date" required
+                        class="form-control form-control-lg shadow border border-secondary-subtle">
+                </div>
+                <div class="col-6">
+                    <label for="end_date" class="fs-5 fw-semibold form-label mb-0">End Date</label>
+                    <input type="date" name="end_date" id="end_date" required
+                        class="form-control form-control-lg shadow border border-secondary-subtle">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="description" class="fs-5 fw-semibold form-label mb-0">Description</label>
+                <textarea id="description" name="description" rows="5" required class="form-control shadow border border-secondary-subtle"
+                    style="resize: none;"></textarea>
+            </div>
+            <div class="mb-4">
+                <p class="fs-5 fw-semibold form-label mb-2">Technologies</p>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-check form-check-inline d-block mb-3">
+                            <input class="form-check-input shadow-sm mt-2 border border-secondary-subtle"
+                                type="checkbox" name="node_js" id="node_js">
+                            <label class="form-check-label fs-5 fw-semibold form-label mb-0 ms-2 tech-text"
+                                for="node_js">Node
+                                Js</label>
+                        </div>
+                        <div class="form-check form-check-inline d-block">
+                            <input class="form-check-input shadow-sm mt-2 border border-secondary-subtle"
+                                type="checkbox" name="react_js" id="react_js">
+                            <label class="form-check-label fs-5 fw-semibold form-label mb-0 ms-2 tech-text"
+                                for="react_js">React
+                                Js</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-check form-check-inline d-block mb-3">
+                            <input class="form-check-input shadow-sm mt-2 border border-secondary-subtle"
+                                type="checkbox" name="next_js" id="next_js">
+                            <label class="form-check-label fs-5 fw-semibold form-label mb-0 ms-2 tech-text"
+                                for="next_js">Next
+                                Js</label>
+                        </div>
+                        <div class="form-check form-check-inline d-block">
+                            <input class="form-check-input shadow-sm mt-2 border border-secondary-subtle"
+                                type="checkbox" name="typescript" id="typescript">
+                            <label class="form-check-label fs-5 fw-semibold form-label mb-0 ms-2 tech-text"
+                                for="typescript">Typescript</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-5">
+                <label for="image" class="fs-5 fw-semibold form-label mb-0">Upload Image</label>
+                <div class="position-relative">
+                    <input type="file" name="image" id="image" accept="image/*" required
+                        class="form-control form-control-lg shadow border border-secondary-subtle">
+                    <div class="position-absolute top-50 end-0 translate-middle-y pe-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24px"
+                            width="24px" version="1.1" id="_x32_" viewBox="0 0 512 512" xml:space="preserve">
+                            <g>
+                                <path fill="#000000"
+                                    d="M454.821,253.582L273.256,435.14c-11.697,11.697-25.124,20.411-39.484,26.235   c-21.529,8.729-45.165,10.928-67.755,6.55c-22.597-4.378-44.054-15.25-61.597-32.784c-11.69-11.69-20.396-25.118-26.227-39.484   c-8.729-21.529-10.929-45.165-6.55-67.748c4.386-22.597,15.25-44.055,32.778-61.596l203.13-203.13   c7.141-7.134,15.299-12.43,24.035-15.969c13.1-5.318,27.516-6.656,41.263-3.994c13.769,2.677,26.798,9.27,37.498,19.963   c7.133,7.134,12.423,15.292,15.968,24.035c5.318,13.092,6.657,27.502,3.987,41.264c-2.67,13.762-9.262,26.783-19.955,37.498   L213.261,363.064c-2.534,2.528-5.375,4.364-8.436,5.61c-4.571,1.851-9.661,2.335-14.495,1.396   c-4.848-0.954-9.355-3.225-13.15-7.006c-2.534-2.534-4.364-5.368-5.603-8.429c-1.865-4.571-2.342-9.668-1.402-14.495   c0.947-4.841,3.225-9.355,7.005-13.149l175.521-175.528l-29.616-29.617l-175.528,175.52c-6.536,6.536-11.505,14.182-14.801,22.313   c-4.941,12.195-6.166,25.473-3.702,38.202c2.449,12.73,8.686,24.989,18.503,34.799c6.543,6.55,14.182,11.519,22.305,14.809   c12.202,4.948,25.473,6.165,38.21,3.702c12.722-2.449,24.989-8.678,34.806-18.511L439.97,195.602   c11.142-11.149,19.571-24.113,25.167-37.917c8.394-20.717,10.48-43.314,6.294-64.971c-4.179-21.643-14.73-42.432-31.46-59.155   c-11.149-11.142-24.114-19.571-37.918-25.166c-20.717-8.401-43.314-10.48-64.971-6.301c-21.643,4.186-42.431,14.737-59.155,31.468   L74.803,236.695c-15.713,15.691-27.552,33.931-35.426,53.352c-11.817,29.154-14.765,60.97-8.863,91.462   c5.888,30.478,20.717,59.696,44.29,83.254c15.698,15.713,33.931,27.552,53.36,35.426c29.146,11.811,60.97,14.758,91.455,8.863   c30.478-5.895,59.696-20.717,83.254-44.29l181.566-181.564L454.821,253.582z" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button id="button-submit"
+                    class="btn btn-dark rounded-pill ms-auto ms-auto px-4 py-1 fw-bold mb-4">submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="projects-wrapper">
+        <div class="container pt-5">
+            <h3 class="mb-4 text-center fw-bold">MY PROJECT</h3>
+            <div id="projects" class="row pt-2 pb-5">
+                <!-- Dynamic Content -->
+                {{> card-project projects=projects }}
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
