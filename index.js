@@ -1,7 +1,7 @@
 import express from 'express'
 import { create } from 'express-handlebars';
 import handleContact from './src/controllers/contactController.js';
-import { showProject, showProjectDetail, createOrUpdateProject, deleteProject } from './src/controllers/projectController.js';
+import { showProject, showProjectDetail, updateProjectView, createOrUpdateProject, deleteProject } from './src/controllers/projectController.js';
 import testController from './src/controllers/test.js';
 import fileUpload from 'express-fileupload';
 
@@ -28,6 +28,7 @@ app.get('/home', (req, res) => res.render('home'));
 app.get('/contact', (req, res) => res.render('contact'));
 app.get('/my-project', showProject);
 app.get('/project/:id', showProjectDetail);
+app.get('/update/project/:id', updateProjectView);
 
 app.post('/contact', handleContact);
 app.post('/create/project', createOrUpdateProject);

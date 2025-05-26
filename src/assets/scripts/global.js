@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname.split('/')[1]
+    const segments = window.location.pathname.split('/');
+    const first_segment = segments[1]
 
-    if (path == 'my-project' || path == 'project') {
+    if (first_segment == 'my-project' || first_segment == 'project' || (segments[1] == 'update' && segments[2] == 'project')) {
         document.querySelector('nav [href="/my-project"]').classList.add('fw-bold');
     }
-    else if (path == '' || path == 'home'){
+    else if (first_segment == '' || first_segment == 'home'){
         document.querySelector('nav [href="/home"]').classList.add('fw-bold');
     }
 });

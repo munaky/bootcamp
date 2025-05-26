@@ -15,29 +15,31 @@
     {{> navbar }}
 
     <div class="container">
-        <h3 class="mt-5 text-center fw-bold">ADD MY PROJECT</h3>
-        <form method="post" action="/create/project" enctype="multipart/form-data" class="mt-5 mb-5 w-50 mx-auto">
+        <h3 class="mt-5 text-center fw-bold">UPDATE MY PROJECT</h3>
+        <form method="post" action="/update/project" enctype="multipart/form-data" class="mt-5 mb-5 w-50 mx-auto">
+            <input type="hidden" name="id" value="{{ project.id }}">
             <div class="mb-4">
                 <label for="name" class="fs-5 fw-semibold form-label mb-0">Name</label>
-                <input type="text" name="name" id="name" required
+                <input type="text" name="name" id="name" required value="{{ project.name }}"
                     class="form-control form-control-lg shadow border border-secondary-subtle">
             </div>
             <div class="mb-4 row">
                 <div class="col-6">
                     <label for="start_date" class="fs-5 fw-semibold form-label mb-0">Start Date</label>
-                    <input type="date" name="start_date" id="start_date" required
+                    <input type="date" name="start_date" id="start_date" required value="{{ project.start_date }}"
                         class="form-control form-control-lg shadow border border-secondary-subtle">
                 </div>
                 <div class="col-6">
                     <label for="end_date" class="fs-5 fw-semibold form-label mb-0">End Date</label>
-                    <input type="date" name="end_date" id="end_date" required
+                    <input type="date" name="end_date" id="end_date" required value="{{ project.end_date }}"
                         class="form-control form-control-lg shadow border border-secondary-subtle">
                 </div>
             </div>
             <div class="mb-4">
                 <label for="description" class="fs-5 fw-semibold form-label mb-0">Description</label>
-                <textarea id="description" name="description" rows="5" required class="form-control shadow border border-secondary-subtle"
-                    style="resize: none;"></textarea>
+                <textarea id="description" name="description" rows="5" required
+                class="form-control shadow border border-secondary-subtle"
+                    style="resize: none;">{{ project.description }}</textarea>
             </div>
             <div class="mb-4">
                 <p class="fs-5 fw-semibold form-label mb-2">Technologies</p>
@@ -45,14 +47,14 @@
                     <div class="col-4">
                         <div class="form-check form-check-inline d-block mb-3">
                             <input class="form-check-input shadow-sm mt-2 border border-secondary-subtle"
-                                type="checkbox" name="node_js" id="node_js">
+                                type="checkbox" name="node_js" id="node_js" {{#if project.techs.node_js}}checked{{/if}}>
                             <label class="form-check-label fs-5 fw-semibold form-label mb-0 ms-2 tech-text"
                                 for="node_js">Node
                                 Js</label>
                         </div>
                         <div class="form-check form-check-inline d-block">
                             <input class="form-check-input shadow-sm mt-2 border border-secondary-subtle"
-                                type="checkbox" name="react_js" id="react_js">
+                                type="checkbox" name="react_js" id="react_js" {{#if project.techs.react_js}}checked{{/if}}>
                             <label class="form-check-label fs-5 fw-semibold form-label mb-0 ms-2 tech-text"
                                 for="react_js">React
                                 Js</label>
@@ -61,14 +63,14 @@
                     <div class="col-4">
                         <div class="form-check form-check-inline d-block mb-3">
                             <input class="form-check-input shadow-sm mt-2 border border-secondary-subtle"
-                                type="checkbox" name="next_js" id="next_js">
+                                type="checkbox" name="next_js" id="next_js" {{#if project.techs.next_js}}checked{{/if}}>
                             <label class="form-check-label fs-5 fw-semibold form-label mb-0 ms-2 tech-text"
                                 for="next_js">Next
                                 Js</label>
                         </div>
                         <div class="form-check form-check-inline d-block">
                             <input class="form-check-input shadow-sm mt-2 border border-secondary-subtle"
-                                type="checkbox" name="typescript" id="typescript">
+                                type="checkbox" name="typescript" id="typescript" {{#if project.techs.typescript}}checked{{/if}}>
                             <label class="form-check-label fs-5 fw-semibold form-label mb-0 ms-2 tech-text"
                                 for="typescript">Typescript</label>
                         </div>
@@ -78,7 +80,7 @@
             <div class="mb-5">
                 <label for="image" class="fs-5 fw-semibold form-label mb-0">Upload Image</label>
                 <div class="position-relative">
-                    <input type="file" name="image" id="image" accept="image/*" required
+                    <input type="file" name="image" id="image" accept="image/*"
                         class="form-control form-control-lg shadow border border-secondary-subtle">
                     <div class="position-absolute top-50 end-0 translate-middle-y pe-3">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24px"
@@ -96,15 +98,6 @@
                     class="btn btn-dark rounded-pill ms-auto ms-auto px-4 py-1 fw-bold mb-4">submit</button>
             </div>
         </form>
-    </div>
-    <div class="projects-wrapper">
-        <div class="container pt-5">
-            <h3 class="mb-4 text-center fw-bold">MY PROJECT</h3>
-            <div id="projects" class="row pt-2 pb-5">
-                <!-- Dynamic Content -->
-                {{> card-project projects=projects }}
-            </div>
-        </div>
     </div>
 
     <script src="/scripts/global.js"></script>

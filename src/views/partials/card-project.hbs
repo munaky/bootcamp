@@ -55,8 +55,7 @@
                 {{/if}}
             </div>
             <div class="d-flex justify-content-between gap-1">
-                <form action="/update/project" method="get" class="flex-fill">
-                    <input type="hidden" name="id" value="{{ this.id }}">
+                <form action="/update/project/{{ this.id }}" method="get" class="flex-fill">
                     <button type="submit" class="btn text-white py-0 w-100 fw-semibold">edit</button>
                 </form>
                 <form action="/delete/project" method="post" class="flex-fill">
