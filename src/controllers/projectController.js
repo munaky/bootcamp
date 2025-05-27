@@ -36,8 +36,6 @@ export async function updateProjectView(req, res) {
     data.start_date = new Date(data.start_date).toISOString().split('T')[0];
     data.end_date = new Date(data.end_date).toISOString().split('T')[0];
     
-    console.log(data)
-    
     res.render('update-project', {
         project: data,
     })
@@ -52,8 +50,6 @@ export async function createOrUpdateProject(req, res) {
         var image_name = `${Date.now()}.${extension}`;
         await image.mv(`src/assets/images/uploads/${image_name}`);
     }
-
-    console.log(image_name)
 
     /* Insert New */
     if(!id){
